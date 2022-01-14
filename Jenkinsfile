@@ -3,23 +3,22 @@ pipeline {
     stages {
         stage('Initialization') {
             steps {
-                echo 'this is the first stage'
+                echo 'This is the initialization stage'
             }
 	  }
         stage('Input') {
             steps {
-                input('Do you want to proceed')
+                input('Do you want to proceed?')
             }
 	  }
         stage('Execution') {
             when {
 			  	not {
-       	            	branch "master"
+       	            	branch "main"
 				}
 		}
             steps {
-                echo 'Hello'
+                echo 'Hello-Execution'
         }
     }
-}
 }
