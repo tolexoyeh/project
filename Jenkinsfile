@@ -3,12 +3,12 @@ pipeline {
 	stages {
     stage(‘Update’) {
 	steps {
-        sh "sudo apt install update -y"
+        sh "sudo yum install update -y"
 	}
 	}
 	stage (‘Build’) {
 	steps {
-		sh "sudo apt install npm"
+		sh "sudo yum install npm"
 		sh "sudo npm install -g create-react-app@3.4.1"
 	}
 	}
