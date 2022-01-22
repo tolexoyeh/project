@@ -26,7 +26,6 @@ pipeline {
         stage (‘Deploy’) {
 	steps {
 		sh "cd webserver && npm run build"
-
 	}
 	}
 }
