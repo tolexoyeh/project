@@ -8,7 +8,7 @@ pipeline {
 	}
 	stage (‘Build’) {
 	steps {
-		sh "mkdir project && cd project"
+		sh "cd /home/centos/newproject"
 		sh "sudo yum install npm -y"
 		sh "sudo npm install -g create-react-app@3.4.1"
 	}
