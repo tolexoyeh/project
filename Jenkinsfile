@@ -1,25 +1,28 @@
 pipeline {
-    agent any
-    stages {
-        stage('Initialization') {
-            steps {
-                echo 'This is the initialization stage'
-            }
-	  }
-        stage('Input') {
-            steps {
-                input('Do you want to proceed?')
-            }
-	  }
-        stage('Execution') {
-            when {
-			  	not {
-       	            	branch "main"
-				}
-		}
-            steps {
-                echo 'Hello-Execution'
-        }
-    }
+	agent any 
+	stages {
+    stage(‘Update’) {
+	steps {
+        sh "sudo apt install update -y"
+	}
+	}
+	stage (‘Build’) {
+	steps {
+		sh "sudo apt install npm"
+		sh "sudo npm install -g create-react-app@3.4.1"
+	}
+	}
+    stage (‘Initialization’) {
+	steps {
+		sh "npm init react-app webserver --use-npm"
+		sh "npm install react-scripts@3.4.1 -g --silent"
+	}
+	}
+        stage (‘Deploy’) {
+	steps {
+		sh "cd webserver && npm run build"
+
+	}
+	}
 }
 }
