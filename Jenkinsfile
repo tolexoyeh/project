@@ -14,6 +14,7 @@ pipeline {
 	}
     stage (‘Initialization’) {
 	steps {
+		sh "rm 
 		sh "npm init react-app webserver --use-npm"
 	}
     	}
