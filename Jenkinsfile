@@ -18,7 +18,7 @@ pipeline {
 		sh "npm init react-app webserver --use-npm"
 	}
     	}
-    stage (‘Pre Deploy’) {
+    stage (‘PreDeploy’) {
 	steps {
 		sh "npm install react-scripts@3.4.1 -g --silent"
 	}
